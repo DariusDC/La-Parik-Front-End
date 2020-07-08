@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div>
+            <h1>Comanda noua</h1>
+            <p>Nume: <%= nume %> </p>
+            <p>Telefon: <%= tel %> </p>
+            <p>Strada: <%= str %> </p>
+            <%for (var i = 0; i < nr.length; ++i){%>
+                <%if (nr[i] > 0){%>
+                    <p><%=nr2[i]%>: <%=nr[i]%></p>
+                <%}%>
+            <%}%>
+            <hr>
+            <p>Pret total: <%= pret %> lei </p>
+        </div>
+    </center>
+</body>
+</html>

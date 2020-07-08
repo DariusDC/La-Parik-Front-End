@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://friconix.com/cdn/friconix.js"> </script>
+  <script src="script.js" defer></script>
+  <title>La Parik</title>
+</head>
+
+<body>
+  
+<!-- Phone and Location for nav  -->
+  <nav class="navbar navbar-expand navbar-light bg-light" data-spy="scroll">
+    <div class="container">
+      <div class="contact-header ml-auto">
+          <ul class="navbar-nav">
+            <li class="nav-item mr-4">
+              <a href="#" class="nav-link"><i class="fas fa-phone"></i>  0773748006</a>
+            </li>
+            <li class="nav-item mr-4">
+              <a href="#" class="nav-link"><i class="fas fa-map-marker-alt"></i>   Nadlac, Arad</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- The big nav  -->
+
+  <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light" id="navScroll">
+    <div class="container">
+        <img src="img/Logo.PNG" alt="" width="200px" class="img-fluid">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#menu" class="nav-link">Meniu</a>
+          </li>
+          <li class="nav-item">
+            <a href="#rezevare" class="nav-link">Rezervari</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Header Images Carousel -->
+
+  <section id="home" class="py-3">
+    <div id="carousel" class="carousel slide" data-ride="carousel1">
+      <div class="carousel-inner" style="height: 400px;">
+        <div class="carousel-item active">
+            <img class="d-block w-100 img-fluid" style="width: 100%; height: 100%;" src="img/pizza1.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item img-fluid">
+          <img class="d-block w-100" src="img/pizza2.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100 img-fluid" src="img/pizza3.jpg" alt="Third slide">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meniu  -->
+
+
+  <section id="menu" class="pb-5">
+    <div class="container text-center text-white">
+      <h2 style="font-size: 60px;" class="text-dark">Meniu</h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-4" >
+          <div class="card" data-toggle="modal" data-target="#modal">
+            <img src="img/pizza-square.jpg" style="width: 100%;" alt="" class="img-fluid">
+          <div class="dark-overlay">
+              <div class="card-body">
+                <i class="fas fa-pizza-slice fa-3x p-4"></i>
+                <h2>Pizza</h2>
+              </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" data-toggle="modal" data-target="#modal" >
+            <img src="img/sweet-sqaure.jpg" style="width: 100%;" alt="" class="img-fluid">
+          <div class="dark-overlay">
+              <div class="card-body">
+                <i class="fas fa-ice-cream fa-3x p-4"></i>
+                <h2>Deserturi</h2>
+              </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" data-toggle="modal" data-target="#modal">
+            <img src="img/drinks-square.jpg" style="width: 100%;" alt="" class="img-fluid">
+          <div class="dark-overlay">
+              <div class="card-body">
+                <i class="fas fa-wine-glass fa-3x p-4"></i>
+                <h2>Bauturi</h2>
+              </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Modals  -->
+
+
+  <form action="/comanda" method="POST" onSubmit="return checkform()">
+    <div class="modal fade"id="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Efectuati o comanda</h5>
+            <button class="close" data-dismiss="modal"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <!-- Modal Content  -->
+            <div class="row">
+
+              <%for (var i = 0; i < meniu.length; ++i){%>
+                <div class="col-md-6">
+                  <div class="card p-2">
+                      <h5><%=meniu[i].nume_produs%></h5>
+                      <p class="text-muted">
+                        <%= meniu[i].descriere %>
+                      </p>
+                      <p class="text-muted">
+                        <span class = "cantitate"> <%= meniu[i].pret %> </span> lei 
+                      </p>
+                     <div class="form-group">
+                        <input name = "nr[]" class = "cantitate" type="number" value="0" min="0" class="form-control">
+                      </div>
+                  </div>
+                </div>
+              <%}%>
+
+              </div>
+            </div>
+          <div class="modal-footer">
+             <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input name="nume" type="text" required placeholder="Nume*" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input name = "tel" type="text" required placeholder="Numar de telefon*" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input name = "str" type="text" required placeholder="Strada*" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <p>Pret total: <span id = "pret">0</span> lei</p>
+                  <button type="submit" class="btn btn-outline-danger btn-block" >Plasati comanda</button>
+                </div>
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Info Section  -->
+
+  <section id="info" class="py-5 ">
+    <div class="dark-overlay py-5">
+      <div class="container text-white">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-left">
+              <h2 class="display-5 mr-auto">Cea Mai Buna Atmosfera</h2>
+              <p class="lead">Restaurantul nostru pune pe primul loc clientii, iar tot staff-ul lucreaza la potential maxim</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerie  -->
+
+  <section id="gallery">
+    <div class="card-columns">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1558138839-564cd77411a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="" class="card-img-top img-fluid">
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1543807669-0d0730e95cb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="card-img-top img-fluid">
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1570377239782-d209a5915ea0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" class="card-img-top img-fluid">
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1591484506290-803ed645eb54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=807&q=80" alt="" class="card-img-top img-fluid">
+      </div>
+    </div>
+  </section>
+
+  <!-- Rezervari  -->
+
+  <div id="rezevare1" class="py-3" style="height: 100px;"></div>
+<form action="/rezervare" method="POST">
+  <section id="rezevare" class="py-5">
+    <div class="container text-center">
+      <h1 class="mb-5">Rezervati O Masa</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input required name = "nume" type="text" placeholder="Nume*" class="form-control form-control-lg">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input required name = "tel" type="tel" placeholder="Numar de telefon*" class="form-control form-control-lg">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="input-group date" data-provide="datepicker">
+            <input required name = "data" type="text" class="form-control form-control-lg" placeholder="Data*">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+          </div>
+          <div class="col-md-12 mt-3">
+            <div class="form-group">
+              <textarea required name="mesaj" id="" cols="30" rows="7" class="form-control form-control-lg" placeholder="Mesaj"></textarea>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button class="btn btn-danger btn-lg btn-block">Rezerva Acum</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <p class="text-muted">
+              Va rugam, rezervati o masa cu cel putin o zi inainte
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+  <!-- Icons  -->
+
+  <section id="icons" class="py-5">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <i class="fas fa-map-marked fa-3x"></i>
+              <h4 class="py-3">Locatie Convenabila</h4>
+              <p class="lead text-muted">Restaurantul nostru este situat in centrul orasului, fiind foarte usor pentru oricine sa ajunga la el</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <i class="fas fa-wifi fa-3x"></i>
+              <h4 class="py-3">Wi-fi Gratuit</h4>
+              <p class="lead text-muted">Oferim internet gratuit pentru toti clientii nostrii</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <i class="fas fa-thumbs-up fa-3x"></i>
+              <h4 class="py-3">Cele mai bune servicii</h4>
+              <p class="lead text-muted">Clientii reprezinta mereu prioritatea #1 pentru fiecare dintre noi</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <i class="fas fa-shopping-bag  fa-3x"></i>
+              <h4 class="py-3">Livrare Gratuita</h4>
+              <p class="lead text-muted">Pentru orice comanda de peste 3 pizza, va vom oferi cu placere o livrare gratuita</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer  -->
+
+  <footer id="footer-main" class="py-5 bg-dark">
+    <div class="container d-flex justify-content-between text-white">
+      <h6 class="display-5">La Parik</h6>
+      <h6><i class="fas fa-phone-alt"></i>  0773748006</h6>
+      <h6><i class="fas fa-envelope"></i>  laparik2020@gmail.com </h6>
+      <h6>Copyright © <span id="year"></span></h6>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+
+    $('.carousel').carousel({
+      interval: 3000,
+      pause: "hover"
+    });
+
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    });
+
+    // Move the active class when click on a link 
+
+    $(document).ready(function(){
+    $('.nav li').click(function(event){
+        //remove all pre-existing active classes
+        $('.active').removeClass('active');
+
+        //add the active class to the link we clicked
+        $(this).addClass('active');
+
+        //Load the content
+        //e.g.
+        //load the page that the link was pointing to
+        //$('#content').load($(this).find(a).attr('href'));      
+
+        event.preventDefault();
+    });
+  });
+
+    //Scroll Spy
+    $('body').scrollspy({ target: '#navScroll' })
+  </script>
+</body>
+
+</html>

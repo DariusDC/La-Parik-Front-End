@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar .contact-header {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar li.active {
+    border-bottom: #4654A3 3px solid;
+}
+
+button .close {
+    color: #333;
+}
+
+#menu .card:hover {
+    color: #4654A3;
+}
+
+#navbarCollapse li {
+    font-size: 20px;
+}
+
+#carouselHeader img {
+    margin-top: 000px;
+}
+
+#carouselHeader {
+    position: relative;
+}
+
+#info {
+    position: relative;
+    min-height: 400px;
+    background: url(../img/pizza3.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /* background-position: 0 00px */
+    text-align: center;
+    color: #fff;
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#icons p {
+    font-size: 15px;
+}
+
+#icons .card:hover {
+    color: #4654A3;
+}
+
+#menu{
+    margin-top: 80px;
+}
+@media only screen and (max-width: 650px) {
+    h6{
+        font-size: 12px;
+    }
+    #menu{
+        margin-top: -130px;
+    }
+
+  }
+
+      

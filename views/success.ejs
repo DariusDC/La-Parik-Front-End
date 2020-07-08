@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Parik</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        form{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="jumbotron">
+            <h1 class="display-4"> <%= tip %> a fost realizata cu succes !</h1>
+            <p class="lead"> Va vom contacta in cel mai scurt timp posibil !</p>
+            <form action="/success" method="post">
+                <button class="btn btn-danger btn-lg btn-block">Pagina principala</button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
