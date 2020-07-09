@@ -13,10 +13,10 @@ const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "laparik2020client@gmail.com",
-        pass: "Client2020"
+        pass: "Your pass"
     }
   })
-const uri = "mongodb+srv://PatrickOndreovici:Patrick242004@restaurant.btnkm.mongodb.net/restaurant?retryWrites=true&w=majority"
+const uri = "mongodb url"
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
 const produsSchema = new mongoose.Schema({
     nume_produs: String,
